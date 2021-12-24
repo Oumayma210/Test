@@ -1,11 +1,10 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { addAnnonce, deleteAnnonce, editAnnonce } from "./../JS/Actions/Action";
+import { deleteAnnonce, editAnnonce } from "./../JS/Actions/Action";
 import { useDispatch } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const AnnonceCardDrafts = ({ el }) => {
     const dispatch = useDispatch();
-
     return (
         <div style={{ paddingTop: "40px" }}>
             <Card style={{ width: "16rem" }}>
@@ -13,9 +12,7 @@ const AnnonceCardDrafts = ({ el }) => {
                     <Card.Title>{el?.title}</Card.Title>
                     <Card.Text>{el?.price}</Card.Text>
                     <Card.Text>{el?.status}</Card.Text>
-
-                    <Card.Text>{el?.Image}</Card.Text>
-
+                    <Card.Img src={el?.Image} />
                     <Card.Text>{el?.email}</Card.Text>
                     <Card.Text>{el?.tel}</Card.Text>
                     <div

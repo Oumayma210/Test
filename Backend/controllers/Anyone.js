@@ -5,7 +5,7 @@ exports.addAnnonce = async (req, res) => {
         const newAnnonce = new Annonce({
             title,
             price,
-            status,
+            status: "drafts",
             Image,
             email,
             tel,

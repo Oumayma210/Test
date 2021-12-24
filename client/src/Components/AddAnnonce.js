@@ -50,6 +50,13 @@ const AddAnnonce = () => {
                             placeholder="enter the price"
                             onChange={handleChange}
                         />
+                        <label htmlFor="status">Status:</label>
+                        <input
+                            type="text"
+                            name="status"
+                            value="drafts"
+                            onChange={handleChange}
+                        />
                         <label htmlFor="Image">Image:</label>
                         <input
                             type="text"

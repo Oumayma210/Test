@@ -7,14 +7,12 @@ import Home from "./Components/Home";
 import Navigation from "./Components/Navigation";
 import Footer from "./Components/Footer";
 import DraftsAnnonce from './Components/DraftsAnnonce';
-
 function App() {
     return (
         <div className="App">
             <Navigation />
             <Switch>
                 <Route path="/home" component={Home} />
-
                 <Route path="/addannonce" component={AddAnnonce} />
                 <Route path="/admin/adminroute" component={Adminpage} />
                 <Route path="/annonceList" component={DraftsAnnonce} />

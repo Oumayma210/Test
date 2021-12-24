@@ -97,10 +97,24 @@ exports.deleteAnonnce = async (req, res) => {
 };
 exports.editAnnonce = async (req, res) => {
     try {
-        const { _id } = req.body._id;
-        const annonce = await Annonce.findById(ObjectId(_id));
-        console.log("resultt:", annonce, req.body._id);
-        res.status(200).send({ msg: "annonce publiée", annonce });
+        const annonce = await Annonce.findOneAndUpdate(
+            { _id: req.body._id },
+            { $set: { status: "published" } }
+        );
+        var mailOptions = {
+            from: "abdouma@gmail.com",
+            to: annonce.email,
+            subject: "Votre annonce est acceptée",
+            text: "Votre annonce est acceptée et merci",
+        };
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("Email sent: " + info.response);
+            }
+        });
+        res.status(200).send({ msg: "annonce publiée" });
     } catch (error) {
         res.status(400).send({
             msg: "cannot published",
