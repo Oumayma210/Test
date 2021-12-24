@@ -14,16 +14,16 @@ const Adminpage = () => {
             }}
         >
             <Card style={{ width: "18rem" }}>
-                <Card.Header>Liste des Annonces</Card.Header>
+                <Card.Header>Brouillon</Card.Header>
                 <Card.Body>
                     <Card.Img
                         variant="top"
                         src="https://th.bing.com/th/id/OIP.AXBMGG4qECRtpgn6ZUXDAwAAAA?pid=ImgDet&rs=1"
                     />
                     <br />
-                    <Link to="/admin/annonceList">
+                    <Link to="/annonceList">
                         <br />
-                        <Button variant="primary">Liste des annonces</Button>
+                        <Button variant="primary">Annonces</Button>
                     </Link>
                 </Card.Body>
             </Card>

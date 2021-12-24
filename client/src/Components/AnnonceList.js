@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getAllDrafts } from "../JS/Actions/Action";
 import AnnonceCard from "./AnnonceCard";
 import { Spinner } from "react-bootstrap";
+import { getAllAnnonce } from "./../JS/Actions/Action";
 const AnnonceList = () => {
     const dispatch = useDispatch();
-    const listDraftAnnonce = useSelector(
-        (state) => state.testReducer.listDraftAnnonce.annonce
+    const listAnnonces = useSelector(
+        (state) => state.testReducer.listAnnonces.annonce
     );
     // const load = useSelector((state) => state.testReducer.load);
-    console.log(listDraftAnnonce);
+    console.log(listAnnonces);
     // useEffect(() => {
     //     dispatch(getAllAnnonce());
     // }, [dispatch]);
@@ -19,12 +19,12 @@ const AnnonceList = () => {
     useEffect(() => {
         try {
             setLoading(true);
-            dispatch(getAllDrafts());
+            dispatch(getAllAnnonce());
             setLoading(false);
         } catch (error) {
             console.log("failed to getallannonce", error);
         }
-    }, []);
+    }, [dispatch]);
     return (
         <div
             style={{
@@ -38,7 +38,7 @@ const AnnonceList = () => {
                     <span className="visually-hidden">Loading...</span>
                 </Spinner>
             ) : (
-                listDraftAnnonce?.map((el) => <AnnonceCard el={el} key={el._id} />)
+                listAnnonces?.map((el) => <AnnonceCard el={el} key={el._id} />)
             )}
         </div>
     );
