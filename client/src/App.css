@@ -1,0 +1,15 @@
+.App {
+    font-family: Times New Roman ;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+footer {
+    margin-top: 525px;
+    height: 60px;
+    color: grey;
+    background-color: black;
+}
