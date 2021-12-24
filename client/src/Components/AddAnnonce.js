@@ -62,7 +62,7 @@ const AddAnnonce = () => {
                         <input
                             type="text"
                             name="email"
-                            value={newAnnonce.Image}
+                            value={newAnnonce.email}
                             placeholder="enter your email please"
                             onChange={handleChange}
                         />
@@ -70,7 +70,7 @@ const AddAnnonce = () => {
                         <input
                             type="number"
                             name="tel"
-                            value={newAnnonce.Image}
+                            value={newAnnonce.tel}
                             placeholder="your phone number"
                             onChange={handleChange}
                         />

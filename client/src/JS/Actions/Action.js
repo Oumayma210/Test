@@ -74,7 +74,17 @@ export const deleteAnnonce = (_id) => async (dispatch) => {
 //anyone: add annonce
 export const addAnnonce = (newAnnonce) => async (dispatch) => {
     try {
-        await axios.post("/add_annonce", newAnnonce);
+        await axios.post("/anyone/add_annonce", newAnnonce);
+        dispatch(getAllAnnonce());
+    } catch (error) {
+        dispatch({ type: FAILED, payload: error.response });
+    }
+};
+export const editAnnonce = (id, newAn) => async (dispatch) => {
+    try {
+        newAn.status = "published";
+        console.log("test1:", newAn);
+        await axios.post(`/admin/${id}`, newAn);
         dispatch(getAllAnnonce());
     } catch (error) {
         dispatch({ type: FAILED, payload: error.response });

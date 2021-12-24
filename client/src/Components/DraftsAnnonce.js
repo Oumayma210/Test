@@ -19,7 +19,7 @@ const DraftsAnnonce = () => {
         } catch (error) {
             console.log("failed to getallannonce", error);
         }
-    }, [dispatch]);
+    }, []);
     return (
         <div
             style={{

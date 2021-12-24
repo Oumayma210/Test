@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { addAnnonce, deleteAnnonce } from "./../JS/Actions/Action";
+import { addAnnonce, deleteAnnonce, editAnnonce } from "./../JS/Actions/Action";
 import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 const AnnonceCardDrafts = ({ el }) => {
     const dispatch = useDispatch();
 
@@ -23,10 +24,16 @@ const AnnonceCardDrafts = ({ el }) => {
                             display: "flex",
                         }}
                     >
-                        <Button onClick={() => dispatch(addAnnonce)}>
-                            {" "}
-                            Publier
-                        </Button>
+                        <Link to="/home">
+                            <Button
+                                onClick={() =>
+                                    dispatch(editAnnonce(el._id, el))
+                                }
+                            >
+                                {" "}
+                                Publier
+                            </Button>
+                        </Link>
                         <Button onClick={() => dispatch(deleteAnnonce(el._id))}>
                             DELETE
                         </Button>

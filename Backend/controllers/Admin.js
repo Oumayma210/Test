@@ -65,7 +65,7 @@ exports.signin = async (req, res) => {
 };
 exports.getAllAnnonce = async (req, res) => {
     try {
-        const annonce = await Annonce.find();
+        const annonce = await Annonce.find({ status: "published" });
         res.status(200).send({
             annonce,
         });
@@ -75,7 +75,7 @@ exports.getAllAnnonce = async (req, res) => {
 };
 exports.getAllDrafts = async (req, res) => {
     try {
-        const annonce = await Annonce.find({status:"drafts"});
+        const annonce = await Annonce.find({ status: "drafts" });
         res.status(200).send({
             annonce,
         });
@@ -91,6 +91,19 @@ exports.deleteAnonnce = async (req, res) => {
     } catch (error) {
         res.status(400).send({
             msg: "cannot delete this annonce",
+            error,
+        });
+    }
+};
+exports.editAnnonce = async (req, res) => {
+    try {
+        const { _id } = req.body._id;
+        const annonce = await Annonce.findById(ObjectId(_id));
+        console.log("resultt:", annonce, req.body._id);
+        res.status(200).send({ msg: "annonce publiée", annonce });
+    } catch (error) {
+        res.status(400).send({
+            msg: "cannot published",
             error,
         });
     }

@@ -16,4 +16,5 @@ router.post("/signin", loginValidation(), validation, admin.signin);
 router.get("/", admin.getAllAnnonce);
 router.get("/getdrafts", admin.getAllDrafts);
 router.delete("/:_id", admin.deleteAnonnce);
+router.post("/:id", admin.editAnnonce);
 module.exports = router;
