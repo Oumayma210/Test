@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { signIn } from "../JS/Actions/Action";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const SignInAdmin = ({ history }) => {
     const [admin, setAdmin] = useState({});
-    const dispatch = useDispatch();
     const handleChange = (e) => {
         setAdmin({ ...admin, [e.target.name]: e.target.value });
     };
@@ -16,45 +13,45 @@ const SignInAdmin = ({ history }) => {
                 flexDirection: "column",
                 justifyContent: "center",
                 flexWrap: "wrap",
-                width: "300px",
-                paddingLeft: "500px",
-
+                width: "400px",
+                margin: "auto",
                 textAlign: "left",
-                paddingBottom: "250px",
                 paddingTop: "50px",
                 fontSize: "20px",
             }}
         >
-            <div className="Container" id="container">
-                <form>
-                    <h2>Hello Admin</h2>
-                    <label>Email</label>
-                    <input
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Addresse Email</Form.Label>
+                    <Form.Control
                         type="email"
+                        placeholder="Enter email"
                         name="email"
-                        placeholder="Enter your Email .."
                         onChange={handleChange}
                     />
-                    <label>Password</label>
-                    <input
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Mot de passe</Form.Label>
+                    <Form.Control
                         type="password"
+                        placeholder="Password"
                         name="password"
-                        placeholder="Enter your password .."
                         onChange={handleChange}
                     />
-                    <br />
-                    <div>
-                        <Link to="/admin/adminroute">
-                            <Button
-                                style={{ margin: "10px" }}
-                                onClick={() => dispatch(signIn(admin, history))}
-                            >
-                                S'identifier{" "}
-                            </Button>
-                        </Link>
-                    </div>
-                </form>
-            </div>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Link to="/admin/adminroute">
+                    <Button variant="primary" type="submit">
+                        S'identifier
+                    </Button>
+                </Link>
+            </Form>
         </div>
     );
 };

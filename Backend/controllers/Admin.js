@@ -2,6 +2,14 @@ const Admin = require("../models/Admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Annonce = require("../models/Annonce");
+var nodemailer = require("nodemailer");
+var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "abdellioumayma210@gmail.com",
+        pass: "123456789oaoa@@",
+    },
+});
 exports.addAdmin = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -95,6 +103,7 @@ exports.deleteAnonnce = async (req, res) => {
         });
     }
 };
+
 exports.editAnnonce = async (req, res) => {
     try {
         const annonce = await Annonce.findOneAndUpdate(
@@ -102,10 +111,10 @@ exports.editAnnonce = async (req, res) => {
             { $set: { status: "published" } }
         );
         var mailOptions = {
-            from: "abdouma@gmail.com",
+            from: "abdellioumayma210@gmail.com",
             to: annonce.email,
             subject: "Votre annonce est acceptée",
-            text: "Votre annonce est acceptée et merci",
+            text: "Votre annonce est acceptée et merci pour votre confiance",
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {

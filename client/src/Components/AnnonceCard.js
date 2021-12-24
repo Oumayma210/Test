@@ -7,10 +7,14 @@ const AnnonceCard = ({ el }) => {
             <Card style={{ width: "16rem" }}>
                 <Card.Body>
                     <Card.Title>{el?.title}</Card.Title>
-                    <Card.Text>{el?.price}</Card.Text>
-                    <Card.Img src={el?.Image}/>
-                    <Card.Text>{el?.email}</Card.Text>
-                    <Card.Text>{el?.tel}</Card.Text>
+                    <Card.Text>{el?.price} dt</Card.Text>
+                    <Card.Img src={el?.Image} />
+                    <Card.Text>
+                        <i class="fa fa-envelope" aria-hidden="true">
+                            {el?.email}
+                        </i>
+                    </Card.Text>
+                    <Card.Text>+216-{el?.tel}</Card.Text>
                 </Card.Body>
             </Card>
         </div>

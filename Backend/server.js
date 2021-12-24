@@ -13,17 +13,7 @@ const PORT = process.env.PORT;
 //middleware global
 app.use(express.json());
 //package notification par email
-var nodemailer = require("nodemailer");
-var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "abdouma@gmail.com",
-        pass: "123456789",
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-});
+
 //routes
 // app.use("/anyone", require("./routes/Anyone"));
 app.post("/anyone/add_annonce", anyone.addAnnonce);

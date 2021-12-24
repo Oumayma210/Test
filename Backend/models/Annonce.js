@@ -5,7 +5,7 @@ const annonceSchema = new Schema({
     title: {
         type: String,
         required: true,
-        min: 4,
+        min: 3,
         max: 200,
     },
     price: {
