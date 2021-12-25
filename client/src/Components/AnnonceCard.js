@@ -10,7 +10,7 @@ const AnnonceCard = ({ el }) => {
                     <Card.Text>{el?.price} dt</Card.Text>
                     <Card.Img src={el?.Image} />
                     <Card.Text>
-                        <i class="fa fa-envelope" aria-hidden="true">
+                        <i className="fa fa-envelope" aria-hidden="true">
                             {el?.email}
                         </i>
                     </Card.Text>

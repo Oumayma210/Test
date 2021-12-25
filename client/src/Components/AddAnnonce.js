@@ -29,7 +29,6 @@ const AddAnnonce = () => {
                     width: "400px",
                     margin: "auto",
                     textAlign: "left",
-                    paddingTop: "50px",
                     fontSize: "20px",
                 }}
             >
@@ -103,7 +102,7 @@ const AddAnnonce = () => {
                             onChange={handleChange}
                         />
                     </Form.Group>
-                    <Link to="/">
+                    <Link to="/home">
                         <Button
                             variant="primary"
                             type="submit"

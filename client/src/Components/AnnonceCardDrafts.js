@@ -14,7 +14,7 @@ const AnnonceCardDrafts = ({ el }) => {
                     <Card.Text>{el?.status}</Card.Text>
                     <Card.Img src={el?.Image} />
                     <Card.Text>
-                        <i class="fa fa-envelope" aria-hidden="true">
+                        <i className="fa fa-envelope" aria-hidden="true">
                             {el?.email}
                         </i>
                     </Card.Text>
@@ -25,7 +25,7 @@ const AnnonceCardDrafts = ({ el }) => {
                             display: "flex",
                         }}
                     >
-                        <Link to="/">
+                        <Link to="/home">
                             <Button
                                 onClick={() =>
                                     dispatch(editAnnonce(el._id, el))
