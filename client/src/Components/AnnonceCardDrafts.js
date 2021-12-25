@@ -6,18 +6,24 @@ import { Link } from "react-router-dom";
 const AnnonceCardDrafts = ({ el }) => {
     const dispatch = useDispatch();
     return (
-        <div style={{ paddingTop: "40px" }}>
-            <Card style={{ width: "16rem" }}>
+        <div
+            style={{
+                paddingTop: "40px",
+                display: "flex",
+                justifiyContent: "space-between",
+            }}
+        >
+            <Card
+                style={{
+                    width: "16rem",
+                }}
+            >
                 <Card.Body>
                     <Card.Title>{el?.title}</Card.Title>
                     <Card.Text>{el?.price} dt</Card.Text>
                     <Card.Text>{el?.status}</Card.Text>
-                    <Card.Img src={el?.Image} />
-                    <Card.Text>
-                        <i className="fa fa-envelope" aria-hidden="true">
-                            {el?.email}
-                        </i>
-                    </Card.Text>
+                    <Card.Img src={el?.Image} style={{ height: "140px" }} />
+                    <Card.Text>{el?.email}</Card.Text>
                     <Card.Text>+216-{el?.tel}</Card.Text>
                     <div
                         style={{
