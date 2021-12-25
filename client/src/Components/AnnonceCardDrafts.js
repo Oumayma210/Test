@@ -6,16 +6,11 @@ import { Link } from "react-router-dom";
 const AnnonceCardDrafts = ({ el }) => {
     const dispatch = useDispatch();
     return (
-        <div
-            style={{
-                paddingTop: "40px",
-                display: "flex",
-                justifiyContent: "space-between",
-            }}
-        >
+        <div className="annonce">
             <Card
                 style={{
                     width: "16rem",
+                    height: "25rem",
                 }}
             >
                 <Card.Body>
@@ -31,7 +26,7 @@ const AnnonceCardDrafts = ({ el }) => {
                             display: "flex",
                         }}
                     >
-                        <Link to="/home">
+                        <Link to="/">
                             <Button
                                 onClick={() =>
                                     dispatch(editAnnonce(el._id, el))

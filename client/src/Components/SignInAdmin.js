@@ -7,19 +7,8 @@ const SignInAdmin = ({ history }) => {
         setAdmin({ ...admin, [e.target.name]: e.target.value });
     };
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                flexWrap: "wrap",
-                width: "400px",
-                margin: "auto",
-                textAlign: "left",
-                paddingTop: "50px",
-                fontSize: "20px",
-            }}
-        >
+        <div className="signinpage">
+            <h3>Hello Admin</h3>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Addresse Email</Form.Label>

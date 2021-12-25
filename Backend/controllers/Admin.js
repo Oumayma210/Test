@@ -2,6 +2,7 @@ const Admin = require("../models/Admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Annonce = require("../models/Annonce");
+//notification par email
 var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
     service: "gmail",
@@ -10,6 +11,7 @@ var transporter = nodemailer.createTransport({
         pass: "123456789oaoa@@",
     },
 });
+//add admin
 exports.addAdmin = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -43,14 +45,14 @@ exports.signin = async (req, res) => {
         const { email, password } = req.body;
         const foundAdmin = await Admin.findOne({ email });
         if (!foundAdmin) {
-            res.status(400).send({ errors: [{ msg: "bad credentiallllll" }] });
+            res.status(400).send({ errors: [{ msg: "Bad Credential" }] });
         }
         const checkPassword = await bcrypt.compare(
             password,
             foundAdmin.password
         );
         if (!checkPassword) {
-            res.status(400).send({ errors: [{ msg: "bad credential" }] });
+            res.status(400).send({ errors: [{ msg: "it's a bad credential" }] });
         }
 
         // creation token

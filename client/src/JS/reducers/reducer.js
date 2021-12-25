@@ -12,7 +12,6 @@ const initialState = {
     listDraftAnnonce: [],
     error: [],
     load: false,
-    isAuthadm: false,
 };
 //pure function
 const testReducer = (state = initialState, { type, payload }) => {
@@ -24,7 +23,6 @@ const testReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 load: false,
-                isAuthadm: true,
             };
         case GET_ALLANNONCE:
             return {

@@ -5,8 +5,41 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
+h3 {
+    text-align: center;
+    color: brown;
+    padding-bottom: 30px;
+    font-size: 40px;
+}
+.signinpage {
+    width: 400px;
+    margin: auto;
+    text-align: left;
+    padding-top: 50px;
+    font-size: 20px;
+}
+.adminpage {
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.addpage {
+    padding-top: 50px;
+
+    width: 400px;
+    margin: auto;
+    text-align: left;
+}
+.annonce {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+}
+
 footer {
     margin-top: 525px;
     height: 60px;

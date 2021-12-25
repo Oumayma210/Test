@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getAllDrafts } from "../JS/Actions/Action";
@@ -9,26 +9,20 @@ const DraftsAnnonce = () => {
     const listDraftsAnnonces = useSelector(
         (state) => state.testReducer.listDraftAnnonce.annonce
     );
-    console.log(listDraftsAnnonces);
-    const [loading, setLoading] = useState(true);
+    const load = useSelector((state) => state.testReducer.load);
+    // console.log(listDraftsAnnonces);
     useEffect(() => {
-        try {
-            setLoading(true);
-            dispatch(getAllDrafts());
-            setLoading(false);
-        } catch (error) {
-            console.log("failed to getallannonce", error);
-        }
-    }, []);
+        dispatch(getAllDrafts());
+    }, [dispatch]);
     return (
         <div
             style={{
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "space-around",
+                justifyContent: "space-between",
             }}
         >
-            {loading ? (
+            {load ? (
                 <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </Spinner>
